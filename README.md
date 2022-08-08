@@ -3,6 +3,8 @@
 A simple API automation test suite that verifies functionality of a public user management API 
 available at https://m3o.com/user/api.
 
+Modular Test Driven Framework
+
 ****************************************************************************
 
 Flows automated as part of the project are as follows -
@@ -15,20 +17,41 @@ Flows automated as part of the project are as follows -
 
 ****************************************************************************
 
+Tools/Technologies included are as follows - 
+
+* RestAssured
+* Java
+* TestNG
+* Maven 
+* Surefire
+* JsonPath
+* JsonSmart
+
+****************************************************************************
+
 How the Framework works?
 
-AnnotationTransformer class which implements IAnnotationTransformer is reponsible for reading the data from RunManager sheet in testdata.xlsx It sets the annotation of the test methods like description,enabled, priority, dataprovider values read from the excel.
+Its a Modular Test Driven Framework, all the test scenarios use '@Test' annotation of TestNG in their respective test files.
+The test data is created on the fly for each scenarios and re-used and destroyed at the end of test completion.
 
-Things to note : Test name in the first column of the excel sheet should match with atleast an @Test available in test classes mentioned in the testng.xml
+The Payload/test data is maintained in a separate json file. There is test data dependency between test file.
+Easy to add a test scenario, ease of maintaining the test data.
 
-All the tests will have the same dataprovider in the TestUtils class.
+The framework has custom reporting for additional details on the test cycle.
+Having TestNg's default test reporting to view the details/results of test execution
 
-For example the loginTest in RunManager sheet of testdata.xlsx will take the data from TestData sheet which have row where the testname is loginTest.
+****************************************************************************
 
-If there are multiple rows with loginTest as test name , framework will consider it as this as multiple iterations for a test case.
+How to execute the Tests ?
 
-
-
+* Clone the repository to your workspace.
+* Build the project using 
+* Execute the test using testng.xml directly
+		OR
+* Execute the command 'mvn clean test' on the CMD prompt or Terminal
+* Once the execution completes the result will be available at: 
+ 
+****************************************************************************
 
 
 ### Assignment
